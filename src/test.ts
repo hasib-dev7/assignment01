@@ -1,4 +1,9 @@
-function reverseString(str: string): string {
-  return str.split("").reverse().join("");
+type StringOrNumber = string | number;
+function checkType(value: StringOrNumber): string | number {
+  if (typeof value === "string") {
+    return "String";
+  } else {
+    return "Number";
+  }
 }
-console.log(reverseString("tpircsepyt"))
+console.log(checkType(2));
