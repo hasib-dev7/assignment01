@@ -33,3 +33,18 @@ interface Book {
 function toggleReadStatus(book: Book): Book & { isRead: boolean } {
   return { ...book, isRead: true };
 }
+
+// Problem 06
+class Person{
+    constructor(public name:string,public age:number){}
+}
+class Student extends Person {
+    constructor(name :string,age:number,public grade:string){
+        super(name,age)
+    }
+    getDetails():string{
+        return `Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`
+    }
+}
+
+// 

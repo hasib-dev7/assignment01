@@ -1,21 +1,20 @@
-// Book with properties title, author, and publishedYear.
-// Sample Input:
-const myBook = { title: "TypeScript Guide", author: "Jane Doe", publishedYear: 2024 };
-// toggleReadStatus(myBook);
+// // Sample Input:
+// const student = new Student("Alice", 20, "A");
+// student.getDetails();
 
 // // Sample Output:
-// {
-//   title: "TypeScript Guide",
-//   author: "Jane Doe",
-//   publishedYear: 2024,
-//   isRead: true
-// }
-interface Book {
-  title: string;
-  author: string;
-  publishedYear: number;
+// "Name: Alice, Age: 20, Grade: A";
+
+class Person{
+    constructor(public name:string,public age:number){}
 }
-function toggleReadStatus(book: Book): Book & { isRead: boolean } {
-  return { ...book, isRead: true };
+class Student extends Person {
+    constructor(name :string,age:number,public grade:string){
+        super(name,age)
+    }
+    getDetails():string{
+        return `Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`
+    }
 }
-console.log(toggleReadStatus(myBook))
+const student = new Student("Alice", 20, "A");
+console.log(student.getDetails())
