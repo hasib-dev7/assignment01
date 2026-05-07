@@ -25,3 +25,11 @@ function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
 }
 
 // Problem 05
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+}
+function toggleReadStatus(book: Book): Book & { isRead: boolean } {
+  return { ...book, isRead: true };
+}

@@ -1,6 +1,21 @@
-const user = { id: 1, name: "John Doe", age: 21 };
-function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
-  return obj[key];
-}
+// Book with properties title, author, and publishedYear.
+// Sample Input:
+const myBook = { title: "TypeScript Guide", author: "Jane Doe", publishedYear: 2024 };
+// toggleReadStatus(myBook);
 
-console.log(getProperty(user, "name"));
+// // Sample Output:
+// {
+//   title: "TypeScript Guide",
+//   author: "Jane Doe",
+//   publishedYear: 2024,
+//   isRead: true
+// }
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+}
+function toggleReadStatus(book: Book): Book & { isRead: boolean } {
+  return { ...book, isRead: true };
+}
+console.log(toggleReadStatus(myBook))
